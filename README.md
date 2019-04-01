@@ -1,1 +1,2 @@
-# 2019-spring-seminar
+# 2019年度春学期セミナー
+Coming soon...
