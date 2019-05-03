@@ -19,6 +19,7 @@
 \newtheorem{word}[defi]{用語}
 \newtheorem{ex}[defi]{例}
 \newtheorem{lem}[defi]{補題}
+\newtheorem{cor}[defi]{系}
 
 \renewcommand\proofname{\bf 証明} % proof環境の設定変更
 
@@ -71,6 +72,23 @@ $v_i$は$v_1,\cdots,v_{i-1},v_{i+1},\cdots,v_{m+1}$の線形結合で表せる�
 帰納法の仮定により
 $v_{i_1},\cdots,v_{i_n}$が$V$の基底となるような
 $i_1,\cdots,i_n\in\{1,\cdots,m+1\}\setminus\{i\}\subseteq\{1,\cdots,m+1\}$が存在する．
+\end{proof}
+
+\begin{cor}
+$V$を有限次元線形空間，$W,W'$を$V$の部分空間とする．
+線形写像$f\colon W\to W'$は$V$上の線形写像$\tilde{f}\colon V\to V$に拡張できる．
+すなわち，$w\in W$に対して$\tilde{f}(w)=f(w)$となるような
+線形写像$\tilde{f}\colon V\to V$が一意的に存在する．
+\end{cor}
+
+\begin{proof}
+$\dim V=n,\dim W=m$とする．
+$W$の基底を$v_1,\cdots,v_m$とすると，補題0.1より
+$v_1,\cdots,v_n$が$V$の基底となるような$v_{m+1},\cdots,v_n\in V$が存在する．
+任意の$v=a_1v_1+\cdots+a_nv_n\in V$に対して
+\[ \tilde{f}(v):=f(a_1v_1+\cdots+a_mv_m) \]
+と定めれば，$\tilde{f}\colon V\to V$は
+$w\in W$に対して$\tilde{f}(w)=f(w)$となるような線形写像である．
 \end{proof}
 
 \end{document}
