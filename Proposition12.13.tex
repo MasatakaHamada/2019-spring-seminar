@@ -1,0 +1,76 @@
+\documentclass{jsarticle}
+\usepackage{amsmath, amssymb} % 数学記号のパッケージ
+\usepackage{ascmac} % 囲み枠のパッケージ
+
+% ハイパーリンクに関するパッケージとその設定
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+ colorlinks=true
+}
+
+% 定理などの番号付けに関するパッケージとその設定
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{defi}{定義}[section]
+\newtheorem{prop}[defi]{命題}
+\newtheorem{thm}[defi]{定理}
+\newtheorem{supp}[defi]{補足}
+\newtheorem{word}[defi]{用語}
+\newtheorem{ex}[defi]{例}
+\newtheorem{lem}[defi]{補題}
+
+\renewcommand\proofname{\bf 証明} % proof環境の設定変更
+
+\begin{document}
+
+% 本文
+主に線形代数の復習．
+
+\begin{lem}
+$V$を有限次元線形空間，$\dim V=n$とする．
+$m\leq n$に対して$v_1,\cdots,v_m\in V$が線形独立ならば，
+$v_1,\cdots,v_n$が$V$の基底となるような$v_{m+1},\cdots,v_n\in V$が存在する．
+\end{lem}
+
+\begin{proof}
+$k=n-m$に関する帰納法を用いて証明する．
+$k=0$のとき，$v_1,\cdots,v_m$で生成される$V$の部分空間を$W$とすると
+$\dim W=\dim V$ゆえ$W=V$であるから，
+$v_1,\cdots,v_n$は$V$の基底である．
+$k=l$のときに結論が成り立つと仮定し，
+$v_1,\cdots,v_m\in V$が線形独立であると仮定する．
+$v\in V$が$v_1,\cdots,v_m$の線形結合で表せないとすると，
+$v_1,\cdots,v_m,v$は線形独立である．
+よって，帰納法の仮定により$v_1,\cdots,v_m,v,v_{m+2},\cdots,v_n$が
+$V$の基底となるような$v_{m+2},\cdots,v_n\in V$が存在する．
+すなわち，線形独立な$v_1,\cdots,v_m$に
+$v,v_{m+2},\cdots,v_n$を付け加えれば$V$の基底となる．
+\end{proof}
+
+\begin{lem}
+$V$を有限次元線形空間，$\dim V=n$とする．
+$m\geq n$に対して$v_1,\cdots,v_m\in V$が$V$を生成するならば，
+$v_{i_1},\cdots,v_{i_n}$が$V$の基底となるような$i_1,\cdots,i_n\in\{1,\cdots,m\}$が存在する．
+\end{lem}
+
+\begin{proof}
+$k=m-n$に関する帰納法を用いて証明する．
+$k=0$のとき，$v_1,\cdots,v_m$は線形独立である．
+もし線形独立でないとすると，ある$1\leq i\leq m$が存在して
+$v_i$は$v_1,\cdots,v_{i-1},v_{i+1},\cdots,v_m$の線形結合で表せる．
+よって$V$は$v_1,\cdots,v_{i-1},v_{i+1},\cdots,v_m$によって生成されるため
+$\dim V\leq m-1<n$であるが，これは矛盾である．
+従って，$v_1,\cdots,v_m$は$V$の基底である．
+$k=l$のときに結論が成り立つと仮定し，
+$v_1,\cdots,v_{m+1}\in V$が$V$を生成するとする．
+このとき$v_1,\cdots,v_{m+1}$は線形従属である(そうでないと$\dim V=m+1>n$となり矛盾)から，
+ある$1\leq i\leq m+1$が存在して
+$v_i$は$v_1,\cdots,v_{i-1},v_{i+1},\cdots,v_{m+1}$の線形結合で表せる．
+すなわち$V$は$v_1,\cdots,v_{i-1},v_{i+1},\cdots,v_{m+1}$によって生成されるから，
+帰納法の仮定により
+$v_{i_1},\cdots,v_{i_n}$が$V$の基底となるような
+$i_1,\cdots,i_n\in\{1,\cdots,m+1\}\setminus\{i\}\subseteq\{1,\cdots,m+1\}$が存在する．
+\end{proof}
+
+\end{document}
