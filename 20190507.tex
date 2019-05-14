@@ -1,0 +1,85 @@
+\documentclass{jsarticle}
+\usepackage{amsmath, amssymb} % 数学記号のパッケージ
+\usepackage{ascmac} % 囲み枠のパッケージ
+
+% ハイパーリンクに関するパッケージとその設定
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+ colorlinks=true
+}
+
+% 定理などの番号付けに関するパッケージとその設定
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{defi}{定義}[section]
+\newtheorem{prop}[defi]{命題}
+\newtheorem{thm}[defi]{定理}
+\newtheorem{supp}[defi]{補足}
+\newtheorem{word}[defi]{用語}
+\newtheorem{ex}[defi]{例}
+\newtheorem{lem}[defi]{補題}
+\newtheorem{cor}[defi]{系}
+
+\renewcommand\proofname{\bf 証明} % proof環境の設定変更
+
+\begin{document}
+
+% 本文
+\section{Continuity of Brownian motion and the finite-dimensional distributions}
+
+\begin{prop}
+$\{\omega\in\Omega:t\mapsto B(t,\omega)は連続\}\notin
+\sigma(B(t_1),\cdots,B(t_n):0\leq t_1\leq\cdots\leq t_n, n\in\mathbb{N})$
+\end{prop}
+
+\begin{proof}
+以下
+$\mathcal{F}:=\sigma(B(t_1),\cdots,B(t_n):0\leq t_1\leq\cdots\leq t_n, n\in\mathbb{N})$
+とおく．
+\begin{enumerate}
+% Step.1
+\item
+$A\in\mathcal{F}\Leftrightarrow$
+ある高々可算な$\Gamma\subset[0,\infty)$および$S\in\mathcal{B}(\mathbb{R}^\Gamma)$が存在して
+$A=\{\omega\in\Omega:(B(t,\omega))_{t\in\Gamma}\in S\}$
+
+($\Leftarrow$)
+
+($\Rightarrow$)
+
+% Step.2
+\item
+$A\in\mathcal{F}\Rightarrow$ある高々可算な$\Gamma\subset[0,\infty)$が存在して，
+$\omega\in A,\omega'\in\Omega$に対し
+$(B(t,\omega))_{t\in\Gamma}=(B(t,\omega'))_{t\in\Gamma}$
+ならば$\omega'\in A$が成り立つ．
+
+% Step.3
+\item
+$A:=C([0,\infty)\to\mathbb{R})$は2の性質を持たない．
+\end{enumerate}
+以上より
+$A\in\mathcal{F}\Leftrightarrow$
+ある高々可算な$\Gamma\subset[0,\infty)$および$S\in\mathcal{B}(\mathbb{R}^\Gamma)$が存在して
+$A=\{\omega\in\Omega:(B(t,\omega))_{t\in\Gamma}\in S\}$
+である．
+\end{proof}
+
+\section{An example of the stochastic process which is not a Brownian motion}
+$\{B(t):t\geq0\}$をブラウン運動とし，
+$U$を$\{B(t):t\geq0\}$と独立で$[0,1]$上の一様分布に従う確率変数とする．
+このとき，独立性とFubiniの定理より
+\[ \mathbb{P}[B(U)=0]
+=\mathbb{P}\otimes\tilde{\mathbb{P}}[B(U(\tilde{\omega}),\omega)=0]
+=\int_0^1\mathbb{P}[B(u,\omega)=0]\,du
+=0 \]
+である．
+
+\section{Distribution of Gaussian random vectors}
+特性関数を使ってみよう．
+
+\section{Normal distribution and exponential distribution}
+ガンマ分布を用いた証明があるかも？
+
+\end{document}
